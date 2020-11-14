@@ -1,10 +1,3 @@
-<tbody>
-    <tr *ngFor="let miss of misses">
-       <td>{{ miss.payload.doc.data().name }}</td>
-       <td>{{ miss.payload.doc.data().region }}</td>
-    </tr>
-</tbody>
-
 <h2>Current Round</h2>
 
 <div class="example-container">
@@ -13,11 +6,11 @@
     <div
     cdkDropList
     #previousRound="cdkDropList"
-    [cdkDropListData]="missesPreviousRound"
+    [cdkDropListData]="misses"
     [cdkDropListConnectedTo]="[nextRound]"
     class="example-list"
     (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let miss of missesPreviousRound" cdkDrag>{{miss.name}}</div>
+    <div class="example-box" *ngFor="let miss of misses" cdkDrag>{{miss.region}}</div>
     </div>
 </div>
 
@@ -31,6 +24,6 @@
     [cdkDropListConnectedTo]="[previousRound]"
     class="example-list"
     (cdkDropListDropped)="drop($event)">
-    <div class="example-box" *ngFor="let miss of missesNextRound" cdkDrag>{{miss.name}}</div>
+    <div class="example-box" *ngFor="let miss of missesNextRound" cdkDrag>{{miss.region}}</div>
     </div>
 </div>

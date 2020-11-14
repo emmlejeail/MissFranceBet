@@ -15,23 +15,18 @@ export class MissComponent implements OnInit {
     this.getMisses()
   }
 
-  misses = {};
+  misses: any[] = [];
 
-  missesPreviousRound = [
-    { id: 1, name: 'Miss Tahiti' },
-    { id: 2, name: 'Miss Saint-Martin et Saint-Barthélémy' },
-    { id: 3, name: 'Miss Côte d\'Azur' },
-    { id: 4, name: 'Miss Guadeloupe' },
-    { id: 5, name: 'Miss Languedoc-Roussillon' },
-    { id: 6, name: 'Miss Provence' }
-  ];
-
-  missesNextRound = [];
+  missesNextRound: any[] = [];
 
   getMisses = () =>
       this.crudService
       .getMisses()
-      .subscribe(res =>(this.misses = res));
+      .subscribe((ss) => {
+        ss.docs.forEach((doc) => {
+          this.misses.push(doc.data());
+        });
+      });
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
@@ -42,5 +37,6 @@ export class MissComponent implements OnInit {
                         event.previousIndex,
                         event.currentIndex);
     }
+
   }
 }
