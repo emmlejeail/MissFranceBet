@@ -1,0 +1,36 @@
+<tbody>
+    <tr *ngFor="let miss of misses">
+       <td>{{ miss.payload.doc.data().name }}</td>
+       <td>{{ miss.payload.doc.data().region }}</td>
+    </tr>
+</tbody>
+
+<h2>Current Round</h2>
+
+<div class="example-container">
+    <h2>From the past round</h2>
+
+    <div
+    cdkDropList
+    #todoList="cdkDropList"
+    [cdkDropListData]="misses"
+    [cdkDropListConnectedTo]="[doneList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let miss of missesPreviousRound" cdkDrag>{{miss.name}}</div>
+    </div>
+</div>
+
+<div class="example-container">
+    <h2>Prognostic for next round</h2>
+
+    <div
+    cdkDropList
+    #doneList="cdkDropList"
+    [cdkDropListData]="missesNextRound"
+    [cdkDropListConnectedTo]="[todoList]"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="example-box" *ngFor="let miss of missesNextRound" cdkDrag>{{miss.name}}</div>
+    </div>
+</div>
