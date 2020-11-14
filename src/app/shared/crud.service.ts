@@ -19,6 +19,16 @@ export class CrudService {
 
     return this.firestore.collection("miss").get();
   }
+
+  createBet(data: any) {
+    console.log(data)
+    return new Promise<any>((resolve, reject) =>{
+      this.firestore
+          .collection("missBets")
+          .add(data)
+          .then(res => {res}, err => reject(err));
+  });
+  }
 }
 
 class Miss {

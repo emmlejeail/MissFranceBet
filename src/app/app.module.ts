@@ -10,6 +10,7 @@ import { MissComponent } from './miss/miss.component';
 import { CrudService } from "./shared/crud.service";
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFirestoreModule,
     AppRoutingModule,
     DragDropModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule
   ],
   providers: [CrudService],
