@@ -12,9 +12,9 @@
 
     <div
     cdkDropList
-    #todoList="cdkDropList"
-    [cdkDropListData]="misses"
-    [cdkDropListConnectedTo]="[doneList]"
+    #previousRound="cdkDropList"
+    [cdkDropListData]="missesPreviousRound"
+    [cdkDropListConnectedTo]="[nextRound]"
     class="example-list"
     (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let miss of missesPreviousRound" cdkDrag>{{miss.name}}</div>
@@ -26,9 +26,9 @@
 
     <div
     cdkDropList
-    #doneList="cdkDropList"
+    #nextRound="cdkDropList"
     [cdkDropListData]="missesNextRound"
-    [cdkDropListConnectedTo]="[todoList]"
+    [cdkDropListConnectedTo]="[previousRound]"
     class="example-list"
     (cdkDropListDropped)="drop($event)">
     <div class="example-box" *ngFor="let miss of missesNextRound" cdkDrag>{{miss.name}}</div>
