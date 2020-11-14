@@ -46,7 +46,8 @@ export class MissComponent implements OnInit {
     { id: 29, name: 'Miss Auvergne' },
     { id: 30, name: 'Miss Pays de la Loire' }
   ];
-  missesNextRound = []
+  missesNextRound = [];
+  
   getMisses = () =>
       this.crudService
       .getMisses()
