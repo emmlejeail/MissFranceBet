@@ -16,16 +16,17 @@ export class MissComponent implements OnInit {
   }
 
   misses = {};
+
   missesPreviousRound = [
     { id: 1, name: 'Miss Tahiti' },
     { id: 2, name: 'Miss Saint-Martin et Saint-Barthélémy' },
     { id: 3, name: 'Miss Côte d\'Azur' },
+    { id: 4, name: 'Miss Guadeloupe' },
     { id: 5, name: 'Miss Languedoc-Roussillon' },
     { id: 6, name: 'Miss Provence' }
   ];
-  missesNextRound = [
-    { id: 4, name: 'Miss Guadeloupe' }
-  ];
+
+  missesNextRound = [];
 
   getMisses = () =>
       this.crudService
