@@ -11,11 +11,13 @@ import { CrudService } from "./shared/crud.service";
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from "@angular/forms";
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MissComponent
+    MissComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
